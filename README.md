@@ -1,105 +1,219 @@
-# 🚀 Chicken Invaders Clone  
-### *Computer Graphics Final Project — Spring 2026*
+# 🐔🚀 Chicken Invaders Clone  
+### Computer Graphics Final Project — Spring 2026
 
 <p align="center">
-  <img src="assets/images/first page.png" alt="Chicken Invaders Logo" width="500">
+  <img src="assets/images/first page.png" alt="Chicken Invaders Clone Banner" width="600">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/HTML5-Game-orange?style=for-the-badge&logo=html5">
+  <b>A 2D arcade space-shooter game built with HTML5 Canvas, CSS, and JavaScript.</b>
+</p>
+
+<p align="center">
+  <a href="PUT_YOUR_GITHUB_PAGES_LINK_HERE">
+    <img src="https://img.shields.io/badge/PLAY%20NOW-GitHub%20Pages-brightgreen?style=for-the-badge&logo=github">
+  </a>
+  <img src="https://img.shields.io/badge/HTML5-Canvas-orange?style=for-the-badge&logo=html5">
   <img src="https://img.shields.io/badge/CSS3-Styling-blue?style=for-the-badge&logo=css3">
-  <img src="https://img.shields.io/badge/JavaScript-Logic-yellow?style=for-the-badge&logo=javascript">
-  <img src="https://img.shields.io/badge/Canvas-2D%20Graphics-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/JavaScript-Game%20Logic-yellow?style=for-the-badge&logo=javascript">
   <img src="https://img.shields.io/badge/Status-Playable-success?style=for-the-badge">
 </p>
 
+---
+
+## 🎮 Play Now
+
 <p align="center">
-  A 2D space shooting game inspired by <b>Chicken Invaders</b>, built using <b>HTML5 Canvas</b>, <b>CSS</b>, and <b>JavaScript</b>.
+  <a href="PUT_YOUR_GITHUB_PAGES_LINK_HERE">
+    <img src="https://img.shields.io/badge/CLICK%20HERE%20TO%20PLAY-🚀-brightgreen?style=for-the-badge">
+  </a>
 </p>
 
 ---
 
 ## 📌 Project Information
 
-- **Course:** Computer Graphics  
-- **Semester:** Spring 2026  
-- **Project Type:** Final Project  
-- **Game Type:** 2D Space Shooting Game  
+| Item | Details |
+|---|---|
+| Course | Computer Graphics |
+| Semester | Spring 2026 |
+| Project Type | Final Project |
+| Game Type | 2D Space Shooting Game |
+| Technologies | HTML, CSS, JavaScript, HTML5 Canvas |
 
 ---
 
 ## 👨‍💻 Team Members
 
 | Student ID | Full Name |
-|-----------|-----------|
-| 220303958 | Youssef Abdalla |
+|---|---|
 | 220303975 | Ahmed Ehab Hassan Ali |
+| 220303958 | Youssef Abdalla |
 
 ---
 
-## 🎮 Game Overview
+## 🕹️ Game Overview
 
-**Chicken Invaders Clone** is a 2D arcade-style shooting game where the player controls a spaceship and fights against waves of invading chickens.
+**Chicken Invaders Clone** is a 2D arcade-style shooting game inspired by the classic Chicken Invaders idea.
 
-The player must:
+The player controls a spaceship and fights against waves of enemy chickens. The goal is to survive, shoot enemies, avoid falling eggs, collect gifts and food, and reach the highest possible score.
 
-- destroy enemy chickens,
-- avoid falling eggs,
-- collect useful gifts and food,
-- survive through multiple waves,
-- defeat boss enemies,
-- and achieve the highest possible score.
+The game includes multiple waves, increasing difficulty, power-ups, particle explosions, lives, score tracking, and boss battles.
 
 ---
 
-## 🕹️ Controls
+## 🎯 Game Objective
+
+The objective of the game is to:
+
+- 🚀 Survive as long as possible  
+- 🐔 Destroy enemy chickens  
+- 🥚 Avoid falling eggs  
+- 🎁 Collect gifts and power-ups  
+- 🍗 Collect food for extra score  
+- 👾 Defeat boss enemies  
+- 🏆 Achieve the highest score possible  
+
+As the level increases, enemies become stronger and the gameplay becomes more challenging.
+
+---
+
+## 🎮 Controls
 
 | Key | Action |
-|-----|--------|
+|---|---|
 | `Enter` | Start the game |
-| `←` `→` `↑` `↓` | Move the spaceship |
+| `←` | Move left |
+| `→` | Move right |
+| `↑` | Move up |
+| `↓` | Move down |
 | `Space` | Shoot |
 | `R` | Restart after Game Over |
 
 ---
 
-## 🎯 Objective
+## ✨ Main Features
 
-The main objective of the game is to:
-
-- survive as long as possible,
-- destroy all enemies in each wave,
-- avoid enemy eggs,
-- collect power-ups,
-- and reach the highest score possible.
-
-As the level increases, the game becomes more difficult with stronger enemies, more dangerous attacks, and boss battles.
+- 🚀 Smooth spaceship movement  
+- 🔫 Bullet shooting system  
+- 🐔 Multiple chicken enemy types  
+- 🥚 Falling egg attacks  
+- 🎁 Gifts and power-ups  
+- ⚡ Laser weapon power-up  
+- 🛡️ Shield protection effect  
+- 🍗 Food collection  
+- ❤️ Lives system  
+- 📈 Score and high score system  
+- 👾 Boss battles  
+- 🌌 Animated star background  
+- 💥 Explosion particle effects  
+- 🔁 Wave progression  
+- 📊 Increasing difficulty over time  
 
 ---
 
-## ✨ Features
+## 🧠 Computer Graphics Concepts Used
 
-- 🚀 Smooth spaceship movement
-- 🔫 Bullet shooting system
-- 🐔 Multiple enemy types
-- 🥚 Falling enemy eggs
-- 🎁 Gifts and power-ups
-- 🍗 Food items for extra score
-- 💥 Explosion particle effects
-- 🛡️ Shield effect
-- ⚡ Laser power-up
-- ❤️ Lives system
-- 📈 Score and High Score system
-- 👾 Boss battles
-- 🌌 Animated star background
-- 🔁 Wave progression and increasing difficulty
+### 🎨 1. Canvas Rendering
+
+The game uses the **HTML5 Canvas API** to render all objects, including the spaceship, enemies, bullets, eggs, background, particles, gifts, and UI.
+
+### 🎞️ 2. Animation
+
+A continuous game loop updates and redraws the game objects using `requestAnimationFrame()`.
+
+### 📍 3. 2D Coordinate System
+
+All game objects are positioned using `x` and `y` coordinates on the canvas.
+
+### 🔄 4. Transformations
+
+The game uses translation and rotation. For example, falling eggs rotate while moving downward.
+
+### 💥 5. AABB Collision Detection
+
+The game uses **Axis-Aligned Bounding Box** collision detection to detect overlaps between objects.
+
+Used for:
+
+- Bullets vs enemies  
+- Bullets vs boss  
+- Eggs vs player  
+- Gifts vs player  
+- Food vs player  
+
+### 🖼️ 6. Raster Graphics and Sprites
+
+The game uses raster image sprites such as PNG and JPG for the player, enemies, background, eggs, bullets, and gifts.
+
+### 🌫️ 7. Transparency and Alpha Channel
+
+Transparency is used for shield effects and fading explosion particles.
+
+### ✨ 8. Particle Effects
+
+Particles are generated when enemies are destroyed or when collisions happen, creating explosion effects.
 
 ---
 
 ## 🖼️ Screenshots
 
-> Add your screenshots here after uploading them to the repository.
+Add your screenshots inside this folder:
 
-### Start Screen
-```md
-![Start Screen](assets/screenshots/start-screen.png)
+`assets/screenshots/`
+
+<p align="center">
+  <img src="assets/screenshots/start-screen.png" width="45%" alt="Start Screen">
+  <img src="assets/screenshots/gameplay.png" width="45%" alt="Gameplay">
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/powerups.png" width="45%" alt="Power Ups">
+  <img src="assets/screenshots/gameover.png" width="45%" alt="Game Over">
+</p>
+
+---
+
+## 📂 Project Structure
+
+```text
+ChickenInvaders/
+│
+├── index.html
+├── README.md
+│
+├── assets/
+│   ├── images/
+│   │   ├── background.jpg
+│   │   ├── ship.png
+│   │   ├── chicken.png
+│   │   ├── chicken2.png
+│   │   ├── chicken3.png
+│   │   ├── elusive_green_chicken.png
+│   │   ├── heart.png
+│   │   ├── bullet.png
+│   │   ├── egg.png
+│   │   ├── food.png
+│   │   ├── gift.png
+│   │   ├── gift_laser.png
+│   │   ├── gift_shield.png
+│   │   └── first page.png
+│   │
+│   └── screenshots/
+│       ├── start-screen.png
+│       ├── gameplay.png
+│       ├── powerups.png
+│       └── gameover.png
+│
+├── css/
+│   └── style.css
+│
+└── js/
+    ├── config.js
+    ├── assets.js
+    ├── entities.js
+    ├── gameObjects.js
+    ├── utils.js
+    ├── game.js
+    ├── input.js
+    └── main.js
