@@ -163,23 +163,17 @@ function drawBackground() {
         ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height); 
     }
     
+    ctx.fillStyle = 'white';
     stars.forEach(star => {
-        ctx.save();
-        ctx.globalAlpha = star.alpha;
-        ctx.fillStyle = 'white';
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fill();
-        ctx.restore();
 
         if (currentState === STATE.PLAYING) star.y += star.speed; 
 
         if (star.y > canvas.height) { 
             star.y = 0; 
             star.x = Math.random() * canvas.width; 
-            star.speed = Math.random() * 0.5 + 0.15;
-            star.radius = Math.random() * 0.8 + 0.2;
-            star.alpha = Math.random() * 0.45 + 0.2;
         }
     });
 }
