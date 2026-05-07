@@ -21,16 +21,6 @@
 
 ---
 
-## 🎮 Play Now
-
-<p align="center">
-  <a href="PUT_YOUR_GITHUB_PAGES_LINK_HERE">
-    <img src="https://img.shields.io/badge/CLICK%20HERE%20TO%20PLAY-🚀-brightgreen?style=for-the-badge">
-  </a>
-</p>
-
----
-
 ## 📌 Project Information
 
 | Item | Details |
@@ -153,24 +143,6 @@ Transparency is used for shield effects and fading explosion particles.
 ### ✨ 8. Particle Effects
 
 Particles are generated when enemies are destroyed or when collisions happen, creating explosion effects.
-
----
-
-## 🖼️ Screenshots
-
-Add your screenshots inside this folder:
-
-`assets/screenshots/`
-
-<p align="center">
-  <img src="assets/screenshots/start-screen.png" width="45%" alt="Start Screen">
-  <img src="assets/screenshots/gameplay.png" width="45%" alt="Gameplay">
-</p>
-
-<p align="center">
-  <img src="assets/screenshots/powerups.png" width="45%" alt="Power Ups">
-  <img src="assets/screenshots/gameover.png" width="45%" alt="Game Over">
-</p>
 
 ---
 
