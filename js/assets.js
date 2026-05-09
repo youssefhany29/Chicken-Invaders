@@ -22,7 +22,7 @@ const sounds = {
     laser: new Audio('assets/sounds/laser.wav'),
     chickenHit: new Audio('assets/sounds/chicken-hit.wav'),
     chickenDead: new Audio('assets/sounds/chicken-dead.wav'),
-    hit: new Audio('assets/sounds/egg-hit-shield.wav'), // نفس الصوت للدرع والسفينة
+    hit: new Audio('assets/sounds/egg-hit-shield.wav'), 
     collect: new Audio('assets/sounds/collect.wav'),
     gameOver: new Audio('assets/sounds/game-over.wav'),
     start: new Audio('assets/sounds/start.wav')
