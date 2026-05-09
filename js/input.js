@@ -13,8 +13,19 @@ window.addEventListener('keydown', (e) => {
         if (e.code === 'F8') { enemies = []; if(boss) boss.hp = 0; } 
     }
 
-    if (e.code === 'Enter' && currentState === STATE.START) { initLevel(); currentState = STATE.PLAYING; }
-    if (e.code === 'KeyR' && currentState === STATE.GAMEOVER) { score = 0; level = 1; lives = 3; initLevel(); currentState = STATE.PLAYING; }
+   if (e.code === 'Enter' && currentState === STATE.START) { 
+    playSound('start');
+    initLevel(); 
+    currentState = STATE.PLAYING; 
+}
+  if (e.code === 'KeyR' && currentState === STATE.GAMEOVER) { 
+    playSound('start');
+    score = 0; 
+    level = 1; 
+    lives = 3; 
+    initLevel(); 
+    currentState = STATE.PLAYING; 
+}
 });
 
 window.addEventListener('keyup', (e) => {
