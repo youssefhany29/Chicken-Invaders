@@ -74,24 +74,28 @@ class Player {
 
         if (this.cooldown > 0) this.cooldown--;
         
-        if (keys.Space && this.cooldown === 0) {
-            if (this.weaponType === 'laser') {
-                bullets.push(new LaserBullet(this.x + this.width / 2, this.y));
-                this.cooldown = 12; 
-            } else {
-                if (this.weaponLevel === 1) {
-                    bullets.push(new Bullet(this.x + this.width / 2, this.y));
-                } else if (this.weaponLevel === 2) {
-                    bullets.push(new Bullet(this.x + this.width / 4, this.y));
-                    bullets.push(new Bullet(this.x + (this.width / 4) * 3, this.y));
-                } else {
-                    bullets.push(new Bullet(this.x, this.y));
-                    bullets.push(new Bullet(this.x + this.width / 2, this.y));
-                    bullets.push(new Bullet(this.x + this.width, this.y));
-                }
-                this.cooldown = 45; 
-            }
+       if (keys.Space && this.cooldown === 0) {
+         if (this.weaponType === 'laser') {
+             bullets.push(new LaserBullet(this.x + this.width / 2, this.y));
+               playSound('laser');
+                 this.cooldown = 12; 
+    } else {
+        playSound('shoot');
+
+        if (this.weaponLevel === 1) {
+            bullets.push(new Bullet(this.x + this.width / 2, this.y));
+        } else if (this.weaponLevel === 2) {
+            bullets.push(new Bullet(this.x + this.width / 4, this.y));
+            bullets.push(new Bullet(this.x + (this.width / 4) * 3, this.y));
+        } else {
+            bullets.push(new Bullet(this.x, this.y));
+            bullets.push(new Bullet(this.x + this.width / 2, this.y));
+            bullets.push(new Bullet(this.x + this.width, this.y));
         }
+
+                   this.cooldown = 45; 
+           }
+       }
     }
 }
 
