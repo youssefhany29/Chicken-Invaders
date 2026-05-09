@@ -35,43 +35,68 @@ function update() {
 
     bullets.forEach(bullet => {
         if (boss && !boss.markedForDeletion && !bullet.markedForDeletion && checkAABBCollision(bullet, boss)) {
-            bullet.markedForDeletion = true; boss.hitFlash = 5; 
-            boss.hp -= (bullet.damage || 1); 
+            bullet.markedForDeletion = true;
+            boss.hitFlash = 5;
+            boss.hp -= (bullet.damage || 1);
             createExplosion(bullet.x, bullet.y, 'orange');
+
+            if (boss.hp > 0) {
+                playSound('chickenHit');
+            }
+
             if (boss.hp <= 0) {
-                boss.markedForDeletion = true; score += 1000;
-                for(let i=0; i<50; i++) createExplosion(boss.x + Math.random()*boss.width, boss.y + Math.random()*boss.height, 'yellow');
+                playSound('chickenDead');
+                boss.markedForDeletion = true;
+                score += 1000;
+
+                for (let i = 0; i < 50; i++) {
+                    createExplosion(
+                        boss.x + Math.random() * boss.width,
+                        boss.y + Math.random() * boss.height,
+                        'yellow'
+                    );
+                }
             }
         }
         
         enemies.forEach(enemy => {
             if (!bullet.markedForDeletion && !enemy.markedForDeletion && checkAABBCollision(bullet, enemy)) {
                 bullet.markedForDeletion = true;
-                enemy.hp -= (bullet.damage || 1); 
-                enemy.hitFlash = 5; 
-                
+                enemy.hp -= (bullet.damage || 1);
+                enemy.hitFlash = 5;
+
+                if (enemy.hp > 0) {
+                    playSound('chickenHit');
+                }
+
                 if (enemy.hp <= 0) {
+                    playSound('chickenDead');
+
                     enemy.markedForDeletion = true;
-                    createExplosion(enemy.x + enemy.width/2, enemy.y + enemy.height/2, 'rgba(0, 100, 255, 0.5)');
-                    
+                    createExplosion(
+                        enemy.x + enemy.width / 2,
+                        enemy.y + enemy.height / 2,
+                        'rgba(0, 100, 255, 0.5)'
+                    );
+
                     let dropChance = Math.random();
-                    
+
                     if (!shieldSpawnedThisLevel && dropChance < 0.04) {
                         gifts.push(new Gift(enemy.x, enemy.y, 'shield'));
-                        shieldSpawnedThisLevel = true; 
-                    } 
-                    else if (laserSpawnedThisLevel < 1 && dropChance < 0.10) { 
-                        gifts.push(new Gift(enemy.x, enemy.y, 'laser')); 
-                        laserSpawnedThisLevel++;
-                    } 
-                    else if (normalSpawnedThisLevel < 1 && dropChance < 0.20) { 
-                        gifts.push(new Gift(enemy.x, enemy.y, 'normal')); 
-                        normalSpawnedThisLevel++;
-                    } 
-                    else if (dropChance < 0.40) {
-                        foods.push(new Food(enemy.x, enemy.y)); 
+                        shieldSpawnedThisLevel = true;
                     }
-                    
+                    else if (laserSpawnedThisLevel < 1 && dropChance < 0.10) {
+                        gifts.push(new Gift(enemy.x, enemy.y, 'laser'));
+                        laserSpawnedThisLevel++;
+                    }
+                    else if (normalSpawnedThisLevel < 1 && dropChance < 0.20) {
+                        gifts.push(new Gift(enemy.x, enemy.y, 'normal'));
+                        normalSpawnedThisLevel++;
+                    }
+                    else if (dropChance < 0.40) {
+                        foods.push(new Food(enemy.x, enemy.y));
+                    }
+
                     score += 10 * level;
                 }
             }
@@ -79,24 +104,34 @@ function update() {
     });
 
     eggs.forEach(egg => {
-        if (!egg.markedForDeletion && checkPlayerEggCollision(egg, player)) {            egg.markedForDeletion = true; 
-            
+        if (!egg.markedForDeletion && checkPlayerEggCollision(egg, player)) {
+            egg.markedForDeletion = true;
+
             if (player.shieldTimer > 0) {
-                createExplosion(egg.x, egg.y, 'cyan'); 
+                playSound('hit');
+                createExplosion(egg.x, egg.y, 'cyan');
                 score += 10;
             } else {
+                playSound('hit');
                 lives--;
-                createExplosion(player.x + player.width/2, player.y + player.height/2, 'red');
-                
+
+                createExplosion(
+                    player.x + player.width / 2,
+                    player.y + player.height / 2,
+                    'red'
+                );
+
                 if (player.weaponType === 'laser') {
-                    player.weaponType = 'normal'; 
-                    player.laserTimer = 0; 
+                    player.weaponType = 'normal';
+                    player.laserTimer = 0;
                 } else if (player.weaponLevel > 1) {
-                    player.weaponLevel--; 
+                    player.weaponLevel--;
                 }
-                
+
                 if (lives <= 0 && currentState !== STATE.GAMEOVER) {
+                    playSound('gameOver');
                     currentState = STATE.GAMEOVER;
+
                     if (score > highScore) {
                         highScore = score;
                         localStorage.setItem('chickenHighScore', highScore);
@@ -111,24 +146,27 @@ function update() {
 
     foods.forEach(food => {
         if (!food.markedForDeletion && checkAABBCollision(food, player)) {
-            food.markedForDeletion = true; score += 50;
+            playSound('collect');
+            food.markedForDeletion = true;
+            score += 50;
         }
     });
 
     gifts.forEach(gift => {
         if (!gift.markedForDeletion && checkAABBCollision(gift, player)) {
-            gift.markedForDeletion = true; 
-            
+            playSound('collect');
+            gift.markedForDeletion = true;
+
             if (gift.type === 'shield') {
-                player.shieldTimer = 600; 
+                player.shieldTimer = 600;
                 score += 500;
             } else if (gift.type === 'laser') {
-                player.weaponType = 'laser'; 
-                player.laserTimer = 300; 
-                score += 300; 
+                player.weaponType = 'laser';
+                player.laserTimer = 300;
+                score += 300;
             } else {
-                if (player.weaponLevel < 3) player.weaponLevel++; 
-                score += 100; 
+                if (player.weaponLevel < 3) player.weaponLevel++;
+                score += 100;
             }
         }
     });
